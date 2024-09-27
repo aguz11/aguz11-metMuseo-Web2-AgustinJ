@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title THE MET
+    link(rel="stylesheet", href="estilo.css")
+  body
+    h1 Bienvenido al Met
+    form(id="FormBusqueda", action="/search")
+      label(for="department") Departamentos:
+      select(id="department" name="departmentId")
+        option(value="") Elegir un departamento
+      br
+      label(for="geoLocation") Localización:
+      input(type="text" id="geoLocation" name="geoLocation" placeholder="Buscar Ej. Japan") 
+      br
+      label(for="keyword") Palabra clave:
+      input(type="text" id="keyword" name="keyword" placeholder="Buscar Ej. armor") 
+      br
+      button(type="submit") Buscar
+
+    div#loadingSpinner
+      div#spinner
+    div#results.grid
+    p#noResultsMessage.hidden No se encontraron resultados.
+    div#paginacion
+    script(src="scripts.js")

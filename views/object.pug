@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title= object.title
+    link(rel="stylesheet", href="../estilo.css")
+body
+    h1= object.title
+    if object.additionalImages && object.additionalImages.length > 0
+        h2 Imágenes Extras:
+        div#additional-images.grid
+            each image in object.additionalImages
+                .card
+                    img.img-small(src=image || "sinImagen.jpg", alt=object.title)
+    else
+        p El archivo no contiene imagenes extras.
+    
+    a(href="/") Página Principal
