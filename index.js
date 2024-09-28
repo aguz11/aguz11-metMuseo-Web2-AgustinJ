@@ -126,7 +126,7 @@ app.get("/search", async (req, res) => {
         if (response.data.total === 0) {
             return res.status(404).json({ message: "No se encontraron resultados para la búsqueda." });
         }
-        const objects = await Promise.all(response.data.objectIDs.slice(0, 70).map(async id => {
+        const objects = await Promise.all(response.data.objectIDs.slice(0, 30).map(async id => {
             const objectResponse = await axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`);
             return objectResponse.data;
         }));
