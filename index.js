@@ -99,17 +99,16 @@ app.get("/search", async (req, res) => {
     let url = `https://collectionapi.metmuseum.org/public/collection/v1/search?`;
     let hasParameter = false;
 
+    if (departmentId) {
+        url += `departmentId=${departmentId}`;
+        hasParameter = true;
+    }
+
     if (keyword) {
         url += hasParameter ? `&q=${encodeURIComponent(keyword)}` : `q=${encodeURIComponent(keyword)}`;
         hasParameter = true;
     }else if (departmentId) {
         url += hasParameter ? `&q=*` : `q=*`;
-    }
-
-
-    if (departmentId) {
-        url += `departmentId=${departmentId}`;
-        hasParameter = true;
     }
 
     if (geoLocation) {
