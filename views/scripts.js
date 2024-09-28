@@ -60,10 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
         resultsDiv.innerHTML = '';
 
 
-        const fetchUrl = `/search?${searchParams.toString()}`;
-        console.log("Fetching URL:", fetchUrl);
 
-        fetch(fetchUrl)
+        fetch(`/search?${searchParams.toString()}`)
             .then(response => response.json())
             .then(data => {
                 if (!data.objectIDs || data.objectIDs.length === 0) {
