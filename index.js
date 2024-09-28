@@ -108,7 +108,7 @@ app.get("/search", async (req, res) => {
         url += hasParameter ? `&q=${encodeURIComponent(keyword)}` : `q=${encodeURIComponent(keyword)}`;
         hasParameter = true;
     }else if (departmentId) {
-        url += hasParameter ? `&q=*` : `q=*`;
+        url += hasParameter ? `&q=` : `q=`;
     }
 
     if (geoLocation) {
